@@ -1,0 +1,61 @@
+npm install -g appium {setup one time}
+
+appium   (start in default port)
+
+appium --port 8888
+
+
+// xpath, UI selector, UI automator, ID, classname (UI automator)
+
+// accessablity ID, xpath, className, iosPredicate , iosClasschain (xcuitest)
+
+
+// FOR Android
+
+{
+  "automationName": "UiAutomator2",
+  "platformName": "Android",
+  " platformVersion": "9",
+  "deviceName": "ZF62245RHC",
+  "appActivity": "com.amazon.mShop.home.HomeActivity",
+  "appPackage": "in.amazon.mShop.android.shopping"
+}
+
+appWaitActivity : Activity name/names, comma separated, for
+ the Android activity you want to wait for. By default
+ the value of this capability is the same as for appActivity.
+  You must set it to the very first focused
+   application activity name in case it is different
+    from the one which is set as appActivity if your capability has appActivity
+ and appPackage. You can also use wildcards (*).
+
+appWaitDuration: 70000
+Timeout in milliseconds used to wait for the appWaitActivity to launch (default 20000)
+avd : avdname emulator5554
+
+networkSpeed : gsm ,edge, lte, hscsd,hsdpa,evdo
+
+// FOR IOS
+{
+    "platformName": "iOS",
+    "platformVersion": "11.0",
+    "deviceName": "iPhone 7",
+    "automationName": "XCUITest",
+    "app": "/path/to/my.app",
+    "bundleID":"xyz",
+    "udid":"SDFGHJKHGFR@#$%^&*("
+}
+
+
+1. Orientation : LANDSCAPE or PORTRAIT
+2. autoWebview : true or false
+3. noReset : true , false (It will clear the app cache android)
+4. fullRest : true or false ( this case u must provide app PATH)
+5. eventTimings: true
+
+
+Link for desirecap: https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/caps.md
+
+1.id
+2.xpath
+3. classname
