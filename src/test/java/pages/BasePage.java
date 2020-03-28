@@ -2,6 +2,7 @@ package pages;
 
 import com.github.javafaker.Faker;
 import com.github.javafaker.PhoneNumber;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,7 +24,6 @@ public class BasePage {
 
 
 
-
     public static void verifyTitle(WebElement element , String excepted){
 
         String actual = element.getText();
@@ -37,6 +37,7 @@ public class BasePage {
 
     public static void verifyElementisDisplayed(WebElement element){
 
+        System.out.println("==== Verify the button ====");
         Assert.assertTrue(element.isDisplayed(),"Element is not present on the screen");
 
     }
@@ -64,6 +65,22 @@ public class BasePage {
         return name;
 
     }
+
+    /**
+     * @Author arvind
+     * @param driver
+     * @param text
+     * @return
+     */
+
+    public static WebElement scroll(WebDriver driver, String text) {
+
+        // === Android === //
+        String automatorString = "new UiScrollable(new UiSelector()).scrollIntoView(new UiSelector().textContains(\""
+                + text + "\"));";
+        return ((AndroidDriver) driver).findElementByAndroidUIAutomator(automatorString);
+    }
+
 
 
 
