@@ -5,7 +5,7 @@ import pages.LoginPage;
 import pages.SettingsPage;
 import testScripts.BaseTest;
 
-public class TC_LGN_02 extends BaseTest {
+public class TC_LGN_04 extends BaseTest {
 
     /**
      * TC_LGN_01 : Verfiy the sign in screen and skip the login
@@ -20,8 +20,7 @@ public class TC_LGN_02 extends BaseTest {
 		lp.verifySignScreenAndSkip();
 
 		SettingsPage sp = new SettingsPage(driver);
-		sp.changeCountry("United States (English)");
-
+		sp.changeLanguage();
 
 
 	}

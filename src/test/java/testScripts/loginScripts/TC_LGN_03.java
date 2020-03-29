@@ -20,7 +20,7 @@ public class TC_LGN_03 extends BaseTest {
 		lp.verifySignScreenAndSkip();
 
 		SettingsPage sp = new SettingsPage(driver);
-		sp.changeLanguage();
+		sp.searchitem("ipad pro");
 
 
 	}
