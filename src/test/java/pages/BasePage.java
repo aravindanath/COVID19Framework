@@ -2,13 +2,19 @@ package pages;
 
 import com.github.javafaker.Faker;
 import com.github.javafaker.PhoneNumber;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.Activity;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.ios.IOSElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
@@ -188,6 +194,51 @@ public class BasePage {
         }
         return "123456";
 
+    }
+
+
+    public static boolean isAndroid(WebDriver driver) {
+        return driver != null && driver.toString().toLowerCase().contains("android");
+    }
+
+
+    public void singleTap(WebElement element) {
+        TouchActions tc = new TouchActions(driver);
+        tc.singleTap(element).build().perform();
+    }
+
+    public void longPress(WebElement element) {
+        TouchActions tc = new TouchActions(driver);
+        tc.longPress(element).build().perform();
+        // tc.release().build().perform();
+    }
+
+    public static void tap(WebDriver driver, WebElement element) {
+
+        if (isAndroid(driver)) {
+
+            AndroidDriver<AndroidElement> aDriver = (AndroidDriver<AndroidElement>) driver;
+            TouchAction touchAction = new TouchAction(aDriver);
+
+            AndroidElement aElement = (AndroidElement) element;
+            int x = aElement.getCenter().x, y = aElement.getCenter().y;
+
+            System.out.println("Executing tap on " + x + ',' + y);
+
+            touchAction.press(PointOption.point(x, y)).release().perform();
+
+        } else {
+            IOSDriver<IOSElement> iDriver = (IOSDriver<IOSElement>) driver;
+            TouchAction touchAction = new TouchAction(iDriver);
+
+            IOSElement iElement = (IOSElement) element;
+            int x = iElement.getCenter().x, y = iElement.getCenter().y;
+
+            System.out.println("Executing tap on " + x + ',' + y);
+            touchAction.press(PointOption.point(x, y)).release().perform(); // May Upgrade , if 'visible' attribute is
+            // true then syso and print "Clicking
+            // directly" under log
+        }
     }
 
 }
