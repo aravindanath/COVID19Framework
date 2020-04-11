@@ -35,6 +35,8 @@ public class ScreenRecorder {
 	public AppiumDriver driver;
 	WebDriverWait wait;
 
+	//https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/security.md
+
 	@BeforeClass
 	public void setUp() throws MalformedURLException {
 		DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -45,7 +47,7 @@ public class ScreenRecorder {
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "ZF62245RHC");
 		capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 700000);
 		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UIAutomator2");
-		capabilities.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + "/VodQA.apk");
+		capabilities.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + File.separator+"apks"+File.separator+"VodQA.apk");
 		driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 	}
 

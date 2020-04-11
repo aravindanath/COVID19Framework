@@ -34,10 +34,10 @@ public class LockPattern {
 	@BeforeClass
 	public void setUp() throws MalformedURLException {
 		DesiredCapabilities capabilities = new DesiredCapabilities();
-		//capabilities.setCapability("networkSpeed", "hsdpa");
-		capabilities.setCapability("avd", "API_29");
+		capabilities.setCapability("networkSpeed", "hsdpa");
+		capabilities.setCapability("avd", "API_27");
 		capabilities.setCapability("unlockType", "pattern");
-		capabilities.setCapability("unlockKey", "3214");
+		capabilities.setCapability("unlockKey", "1234");
 		capabilities.setCapability("uiautomator2ServerLaunchTimeout", 200000);
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
 		capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 800000);

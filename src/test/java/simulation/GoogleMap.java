@@ -3,6 +3,7 @@ package simulation;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Collection;
@@ -30,10 +31,11 @@ public class GoogleMap {
 	public void setup() throws MalformedURLException {
 
 		DesiredCapabilities caps = new DesiredCapabilities();
-		caps.setCapability("avd", "API_27");
+		//caps.setCapability("avd", "API_27");
 		caps.setCapability("platformName", "Android");
-		caps.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
-		//caps.setCapability("deviceName", "ZF62245RHC");
+
+	//	caps.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
+		caps.setCapability("deviceName", "ZF62245RHC");
 		caps.setCapability("automationName", "UiAutomator2");
 		caps.setCapability("appPackage", "com.google.android.apps.maps");
 		caps.setCapability("appActivity", "com.google.android.maps.MapsActivity");
@@ -152,7 +154,7 @@ public class GoogleMap {
 		driver.perform(zoomOut(center, 450));
 		
 		Thread.sleep(1000);
-		new BasePage(driver).captureScreen();
+//		new BasePage(driver).captureScreen();
 		driver.perform(zoomIn(center, 450));
 
 		Thread.sleep(1000);
