@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeClass;
@@ -21,8 +22,8 @@ public class BaseTest {
 	public String DeviceName = "motorola one power";
 	public String packageName = "in.amazon.mShop.android.shopping";// "in.swiggy.android"; //com.actimind.actitime
 	public String appActivity = "com.amazon.mShop.home.HomeActivity";// com.actimind.actitime.ui.startup.StartActivity
-	public String path = System.getProperty("user.dir")+File.separator+"apks"+File.separator+"amazon.apk";
-	public WebDriver driver;
+	public String path = System.getProperty("user.dir")+File.separator+"apks"+File.separator+"WebViewTest.apk";
+	public AppiumDriver driver;
 	
 	
 	@BeforeClass
@@ -38,7 +39,7 @@ public class BaseTest {
 		dc.setCapability("deviceName", DeviceName);
 		dc.setCapability("platformName", "Android");
 		dc.setCapability("noReset", false);
-		driver = new AndroidDriver<AndroidElement>(new URL("http://0.0.0.0:4723/wd/hub"), dc);
+		driver = new AppiumDriver<AndroidElement>(new URL("http://0.0.0.0:4723/wd/hub"), dc);
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		
 	}
