@@ -1,0 +1,11 @@
+1. Fill the form details and verify toast error message display appropiately for wrong input.
+
+2. Shop the items in the cart by scrolling to specific product to verify scroll functionality.
+
+3. Validate if the items selected in the page 2 are matching with items diaplayed in check out page.
+
+4. Validate the total amount diplayed in the checkout page mactches with sum of product amount selected for shopping.
+
+5. Validate mobile gesture working for links(long press) and navigate to webview
+
+6. verify if user can do operations on web view and can navigate back to native app if needed.
