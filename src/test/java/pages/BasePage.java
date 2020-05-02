@@ -265,5 +265,20 @@ public class BasePage {
     }
 
 
+    public static void swipeOnSeekbar(AppiumDriver driver, WebElement element, int percentage) {
+
+        Point point = element.getLocation();
+        Dimension eleSize = element.getSize();
+
+        int startX = point.getX();
+        int startY = point.getY() + (eleSize.getHeight() / 2);
+        int moveToX = point.getX() + (eleSize.getWidth() * percentage / 100);
+        int moveToY = point.getY() + (eleSize.getHeight() / 2);
+
+        new TouchAction<>(driver).press(PointOption.point(startX, startY))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
+                .moveTo(PointOption.point(moveToX, moveToY)).release().perform();
+    }
+
 
 }

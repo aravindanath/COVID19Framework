@@ -19,11 +19,11 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
-	public String udid = "E6A60320-C921-4C55-B500-96279C968D4B";// "emulator-5554";
+	public String udid = "898F38F7-2FA4-4F40-BC14-3514AFBEE274";// "emulator-5554";
 	public String PlatformVersion = "13.4.1";
 	public String DeviceName = "iPhone 8";
 	public String platformName ="iOS";
-	public String bundleID = "com.example.apple-samplecode.UICatalog";
+	public String bundleID = "com.example.apple-samplecode.UIKitCatalog";//com.example.apple-samplecode.UIKitCatalog
 	public String path = System.getProperty("user.dir")+File.separator+"apks"+File.separator+"WebViewTest.apk";
 //	public IOSDriver driver;
 	protected WebDriver driver = null;
