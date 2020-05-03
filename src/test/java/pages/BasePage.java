@@ -3,6 +3,7 @@ package pages;
 import com.github.javafaker.Faker;
 import com.github.javafaker.PhoneNumber;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.Activity;
 import io.appium.java_client.android.AndroidDriver;
@@ -12,11 +13,16 @@ import io.appium.java_client.ios.IOSElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Locale;
@@ -280,5 +286,28 @@ public class BasePage {
                 .moveTo(PointOption.point(moveToX, moveToY)).release().perform();
     }
 
+//https://elementalx.org/button-mapper/android-key-codes/
+
+    public static void useKeyboard(WebDriver driver,int val) {
+        ((AndroidDriver) driver).pressKeyCode(val);
+    }
+
+
+    public static void clickBasedOnExplicitWait(WebDriver driver, int maxTime, By element) {
+        WebDriverWait wait = new WebDriverWait(driver, maxTime);
+        wait.until(ExpectedConditions.presenceOfElementLocated(element)).click();
+    }
+
+
+
+
+    public static String captureScreen(WebDriver driver) throws IOException {
+        TakesScreenshot screen = (TakesScreenshot) driver;
+        File src = screen.getScreenshotAs(OutputType.FILE);
+        String dest = System.getProperty("user.dir") + "/screenShot.png";
+        File target = new File(dest);
+        FileUtils.copyFile(src, target);
+        return dest;
+    }
 
 }
