@@ -3,6 +3,7 @@ package End2End;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.AutomationName;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -14,9 +15,9 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTestE2E {
-	public String udid = "ZF62245RHC";// "emulator-5554";
-	public String PlatformVersion = "10";
-	public String DeviceName = "motorola one power";
+	public String udid = "ZY223CPDLT";// "emulator-5554";
+	public String PlatformVersion = "7";
+	public String DeviceName = "Moto G4";
 	public String path = System.getProperty("user.dir")+File.separator+"apks"+File.separator+"GeneralStore.apk";
 
 
@@ -28,7 +29,8 @@ public class BaseTestE2E {
 		DesiredCapabilities dc = new DesiredCapabilities();
 		dc.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
 		dc.setCapability(MobileCapabilityType.NO_RESET, false);
-		dc.setCapability(MobileCapabilityType.APP, path);
+		dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.androidsample.generalstore.SplashActivity");
+		dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.androidsample.generalstore");
 		dc.setCapability(MobileCapabilityType.VERSION, PlatformVersion);
 		dc.setCapability("deviceName", DeviceName);
 		dc.setCapability("platformName", "Android");

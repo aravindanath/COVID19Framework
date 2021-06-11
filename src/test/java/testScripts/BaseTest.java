@@ -17,9 +17,9 @@ import io.appium.java_client.remote.AutomationName;
 import io.appium.java_client.remote.MobileCapabilityType;
 
 public class BaseTest {
-	public String udid = "ZF62245RHC";// "emulator-5554";
-	public String PlatformVersion = "10";
-	public String DeviceName = "motorola one power";
+	public String udid = "J9AAGF003855NTH";// "emulator-5554";
+	public String PlatformVersion = "9";
+	public String DeviceName = "ASUS_X00TD";//"motorola one power";
 	public String packageName = "in.amazon.mShop.android.shopping";// "in.swiggy.android"; //com.actimind.actitime
 	public String appActivity = "com.amazon.mShop.home.HomeActivity";// com.actimind.actitime.ui.startup.StartActivity
 	public String path = System.getProperty("user.dir")+File.separator+"apks"+File.separator+"WebViewTest.apk";

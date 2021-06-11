@@ -33,7 +33,7 @@ public class Ecommerce_tc_01 extends BaseTestE2E {
         driver.findElement(By.xpath("//*[contains(@text,'Shop')]")).click();
 
         String tost = driver.findElement(By.xpath("//*[@text='Please enter your name']")).getText();
-
+        System.out.println(tost);
         Assert.assertTrue(tost.contains("Please enter your name"),"Toast msg mis match!");
 
 

@@ -8,7 +8,9 @@ public class ReadOTP {
     @Test
     public void readOTP(){
 
-        String smsText = "Hi Kavita, for your HDFC txn ac xxxxxx844433 OTP is 5455".replace(".","").replace(",","").trim();
+//        String smsText = "Hi Kavita, for your HDFC txn ac xxxxxx844433 OTP is 5455".replace(".","").replace(",","").trim();
+
+        String smsText ="••••••••••••2510".replace("•","");
 
         for (String str : smsText.split(" ")) {
             if (str.matches("\\d{6}")) {
